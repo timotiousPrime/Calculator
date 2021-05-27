@@ -28,9 +28,41 @@ header h1 {
 }
 
 main {
-    height: 60vh;
+    font-family: comfortaa, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.4rem;
+    justify-content: space-around;
+    display: flex;
+    height: fit-content;
     border: 1px red dotted;
 }
+
+#calculatorBody {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    flex-wrap: wrap;
+    width: fit-content;
+    border: 1px blue dotted;
+}
+
+.btn {
+    background-color: #777;
+    margin: .4rem;
+    border-radius: .5rem;
+    padding: .8rem;
+}
+
+.screen {
+    height: 3.2rem;
+    grid-column: 1 / span 4;
+    margin: .6rem;
+    background-color: #444;
+}
+
+.plus {
+    grid-column: 4 / 5;
+    grid-row: 6 / span 8;
+}
+
 
 footer {
     padding: .6rem;
