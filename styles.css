@@ -9,7 +9,6 @@
 
 body {
     font-family: roboto, sans-serif;
-    border: 1px yellow dotted;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -20,7 +19,7 @@ body {
 }
 
 header {
-    border: 1px red dotted;
+
 }
 
 header h1 {
@@ -33,7 +32,7 @@ main {
     justify-content: space-around;
     display: flex;
     height: fit-content;
-    border: 1px red dotted;
+
 }
 
 #calculatorBody {
@@ -41,7 +40,8 @@ main {
     grid-template-columns: auto auto auto auto;
     flex-wrap: wrap;
     width: fit-content;
-    border: 1px blue dotted;
+    background-color: #111;
+    border-radius: 0.6rem; 
 }
 
 .btn {
@@ -52,6 +52,7 @@ main {
 }
 
 .screen {
+    border-radius: 0.2rem;
     height: 3.2rem;
     grid-column: 1 / span 4;
     margin: .6rem;
@@ -66,5 +67,4 @@ main {
 
 footer {
     padding: .6rem;
-    border: 1px red dotted;
 }
