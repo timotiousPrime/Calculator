@@ -19,7 +19,7 @@ body {
 }
 
 header {
-
+    margin: 1.2rem;
 }
 
 header h1 {
@@ -31,7 +31,6 @@ main {
     font-size: 1.4rem;
     justify-content: space-around;
     display: flex;
-    height: fit-content;
 
 }
 
@@ -39,21 +38,29 @@ main {
     display: grid;
     grid-template-columns: auto auto auto auto;
     flex-wrap: wrap;
-    width: fit-content;
     background-color: #111;
     border-radius: 0.6rem; 
 }
 
 .btn {
-    background-color: #777;
+    min-width: 3.6rem;
+    background-color: #FF9F00;
     margin: .4rem;
     border-radius: .5rem;
     padding: .8rem;
 }
 
+.op {
+    background-color: #FF4600;
+}
+
+.func{
+    background-color: #00B7FF;
+}
+
 .screen {
     border-radius: 0.2rem;
-    height: 3.2rem;
+    height: 4.6rem;
     grid-column: 1 / span 4;
     margin: .6rem;
     background-color: #444;
@@ -62,6 +69,10 @@ main {
 .plus {
     grid-column: 4 / 5;
     grid-row: 6 / span 8;
+}
+
+.equals {
+    background-color: #FF0069;
 }
 
 
