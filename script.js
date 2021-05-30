@@ -1,3 +1,5 @@
+// Functions
+
 function add(x, y){
     return x + y
 }
@@ -17,5 +19,33 @@ function divide(x, y) {
     }
 }
 
-function percentOf(x, y, z) {
-    return x z (y * (x / 100))}
+function pi() {
+    return 22/7
+}
+
+function percentOf(x, y) {
+    let percent = x * (y / 100);
+
+    return percent
+}
+
+function squared(x) {
+    return x * x
+}
+
+function squareRoot(x) {
+    if (x >= 0) return Math.sqrt(x)
+    else return 'You can\'t get the square root of your IQ. It can\'t be less than zero' 
+}
+
+function factoral(x) {
+    let array = []
+    for (let i = 1; i <= x; i++ ) {
+        array.push(i)
+    }
+
+    let result =array.reduce( (acc, num) => acc * num)
+    return result
+}
+
+//
