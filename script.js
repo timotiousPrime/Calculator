@@ -65,3 +65,17 @@ function logEvent(e) {
     console.log(num) 
     screenDisplay.textContent = num
 }
+
+const operationBtns = document.querySelectorAll('.op');
+operationBtns.forEach(opBtn => opBtn.addEventListener('click', logOperation));
+
+function logOperation(e) {
+    inputPair.push(num)
+    inputNum = 0;
+    console.log(inputPair)
+    let btnId = e.target.id
+    console.log(btnId)
+}
+
+
+
