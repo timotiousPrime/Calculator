@@ -54,9 +54,9 @@ let inputPair = [];
 
 let inputNum = 0;
 
-let screenDisplay = document.getElementById('screen');
+const screenDisplay = document.getElementById('screen');
 
-let numBtns = document.querySelectorAll('.num');
+const numBtns = document.querySelectorAll('.num');
 numBtns.forEach(numBtn => numBtn.addEventListener('click', logEvent))
 
 function logEvent(e) {
@@ -64,6 +64,4 @@ function logEvent(e) {
     num = parseFloat(inputNum)
     console.log(num) 
     screenDisplay.textContent = num
-
-    
 }
