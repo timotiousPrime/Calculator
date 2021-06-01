@@ -50,25 +50,31 @@ function factoral(x) {
 
 //
 
-let inputPair = [];
+let inputPair = []; // holds a pair of numbers
 
-let inputNum = 0;
+let inputNum = 0; // is the first number being entered at any one time
 
-const screenDisplay = document.getElementById('screen');
+const screenDisplay = document.getElementById('screen'); // is the area where the screen is 
 
+// listens for when a number is pressed
 const numBtns = document.querySelectorAll('.num');
-numBtns.forEach(numBtn => numBtn.addEventListener('click', logEvent))
+numBtns.forEach(numBtn => numBtn.addEventListener('click', captureNum))
 
-function logEvent(e) {
+
+// captures the number being entered by the user
+function captureNum(e) {
     inputNum += (e.target.textContent);
     num = parseFloat(inputNum)
     console.log(num) 
     screenDisplay.textContent = num
 }
 
+// listen for when an operation is entered
 const operationBtns = document.querySelectorAll('.op');
 operationBtns.forEach(opBtn => opBtn.addEventListener('click', logOperation));
 
+
+// captures the number previously entered and adds the last operation called to a variable 
 function logOperation(e) {
     inputPair.push(num)
     inputNum = 0;
@@ -76,6 +82,4 @@ function logOperation(e) {
     let btnId = e.target.id
     console.log(btnId)
 }
-
-
 
