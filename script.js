@@ -54,6 +54,12 @@ let inputPair = []; // holds a pair of numbers
 
 let inputNum = 0; // is the first number being entered at any one time
 
+let num;
+
+let op = '';
+
+let result;
+
 const screenDisplay = document.getElementById('screen'); // is the area where the screen is 
 
 // listens for when a number is pressed
@@ -79,7 +85,63 @@ function logOperation(e) {
     inputPair.push(num)
     inputNum = 0;
     console.log(inputPair)
-    let btnId = e.target.id
-    console.log(btnId)
+    op = e.target.id
+    console.log(op)
 }
 
+function clear(){
+    num = 0;
+    inputPair = [];
+    inputNum = 0;
+    op = '';
+}
+
+function clearScreen(){
+    clear();
+    screenDisplay.textContent = num;
+}
+
+const clearBtn = document.querySelector('#clear');
+clearBtn.addEventListener('click', clearScreen);
+
+function displayResults(result){
+    screenDisplay.textContent = result;
+    console.log(result);
+    clear();
+    num = result;
+}
+
+function evaluate(){
+    inputPair.push(num);
+    console.log(inputPair);
+    let x = inputPair[0];
+    let y = inputPair[1];
+    console.log(op);
+    switch (op) {
+        case 'plus':
+            result = add(x, y);
+            displayResults(result)
+            break;
+        case 'minus':
+            result = subtract(x, y);
+            displayResults(result)
+            break;
+        case 'times':
+        result = multiply(x, y);
+        displayResults(result)
+            break;
+        case 'divi':
+        result = divide(x, y);
+        displayResults(result)
+            break;
+        default:
+            console.log(num);
+            screenDisplay.textContent = num;
+            console.log(op)
+            break;
+    }
+
+}
+
+const equalsBtn = document.querySelector('#equals')
+equalsBtn.addEventListener('click', evaluate)
