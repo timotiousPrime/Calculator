@@ -13,10 +13,11 @@ function multiply(x, y) {
 };
 
 function divide(x, y) {
-    if (y === 0) return 'The second value has to be greater than your IQ. It can\'t be zero' 
+    if (y === 0) return 'error'
     else {
         return x / y;
     };
+    // add a popup saying 'The second value has to be greater than your IQ. It can\'t be zero' 
 };
 
 function pi() {
@@ -35,7 +36,8 @@ function squared(x) {
 
 function squareRoot(x) {
     if (x >= 0) return Math.sqrt(x)
-    else return 'You can\'t get the square root of your IQ. It can\'t be less than zero' 
+    else return 'error' 
+    // add a popup saying 'You can\'t get the square root of your IQ. It can\'t be less than zero'
 };
 
 function factoral(x) {
@@ -48,17 +50,15 @@ function factoral(x) {
     return result;
 };
 
-//
+///////////////////////////////////////////////////
 
-let inputPair = []; // holds a pair of numbers
+let inputPair = [0,]; // holds a pair of numbers
 
 let inputNum = 0; // is the first number being entered at any one time
 
-let num;
+let op = ''; // is the operation entered by user
 
-let op = '';
-
-let result;
+let result; // is the result from evaluation
 
 const screenDisplay = document.getElementById('screen'); // is the area where the screen is 
 
@@ -66,82 +66,104 @@ const screenDisplay = document.getElementById('screen'); // is the area where th
 const numBtns = document.querySelectorAll('.num');
 numBtns.forEach(numBtn => numBtn.addEventListener('click', captureNum))
 
-
-// captures the number being entered by the user
-function captureNum(e) {
-    inputNum += (e.target.textContent);
-    num = parseFloat(inputNum)
-    console.log(num) 
-    screenDisplay.textContent = num
-}
-
 // listen for when an operation is entered
 const operationBtns = document.querySelectorAll('.op');
-operationBtns.forEach(opBtn => opBtn.addEventListener('click', logOperation));
+operationBtns.forEach(opBtn => opBtn.addEventListener('click', operate));
 
 
-// captures the number previously entered and adds the last operation called to a variable 
-function logOperation(e) {
-    inputPair.push(num)
-    inputNum = 0;
-    console.log(inputPair)
-    op = e.target.id
-    console.log(op)
-}
-
-function clear(){
-    num = 0;
-    inputPair = [];
-    inputNum = 0;
-    op = '';
-}
-
-function clearScreen(){
-    clear();
-    screenDisplay.textContent = num;
-}
-
+// Listens for when user clicks on the clear btn and calls clear function
 const clearBtn = document.querySelector('#clear');
 clearBtn.addEventListener('click', clearScreen);
 
-function displayResults(result){
-    screenDisplay.textContent = result;
-    console.log(result);
-    clear();
-    num = result;
+
+// Listen for when equals is clicked
+const equalsBtn = document.querySelector('#equals')
+equalsBtn.addEventListener('click', equals);
+///////////////////////////////////////////////////////////////////////
+
+// clears the numbers
+function clearNums(){
+    inputPair = [];
+    inputNum = 0;
+    tempNum = 0
 }
 
+// clears the screen
+function clearScreen(){
+    clearNums()
+    inputPair = [0,];
+    result = 0;
+    screenDisplay.textContent = tempNum
+    console.log('clear all');
+}
+
+
+function getResultsReady(){
+    clearNums(); // clear the last tempNum and the inputPair
+    inputPair.push(result); // put the result from the evaluation into the clean pair array
+};
+
+
+// evaluates the numbers in inputPair with the operation called
 function evaluate(){
-    inputPair.push(num);
-    console.log(inputPair);
+
     let x = inputPair[0];
     let y = inputPair[1];
-    console.log(op);
+
     switch (op) {
         case 'plus':
             result = add(x, y);
-            displayResults(result)
+            getResultsReady();
+            screenDisplay.textContent = result;
             break;
         case 'minus':
             result = subtract(x, y);
-            displayResults(result)
+            getResultsReady();
+            screenDisplay.textContent = result;
             break;
         case 'times':
-        result = multiply(x, y);
-        displayResults(result)
+            result = multiply(x, y);
+            getResultsReady();
+            screenDisplay.textContent = result;
             break;
         case 'divi':
-        result = divide(x, y);
-        displayResults(result)
+            console.log(inputPair)
+            result = divide(x, y);
+            getResultsReady();
+            screenDisplay.textContent = result;
             break;
         default:
-            console.log(num);
-            screenDisplay.textContent = num;
-            console.log(op)
+            result = add(x, y);
+            screenDisplay.textContent = result;
             break;
     }
 
 }
 
-const equalsBtn = document.querySelector('#equals')
-equalsBtn.addEventListener('click', evaluate)
+function evaluateNums(){
+    inputPair.push(tempNum); // add the number entered before operator was pressed, into pair array
+    evaluate(); // evaluate the numbers in the pair array
+}
+
+
+// captures the number being entered by the user
+function captureNum(e) {
+    inputNum += (e.target.textContent); //get the contents of the number just pressed and add it to a var
+    tempNum = parseFloat(inputNum); // clean up the number
+    console.log(tempNum);
+    screenDisplay.textContent = tempNum;  // display the number on the calc screen
+}
+
+function operate(e){
+    evaluateNums();
+    op = e.target.id; // log which operator was just pressed
+    console.log(op);
+    getResultsReady()
+}
+
+function equals(e){
+    evaluateNums();
+    getResultsReady()
+    console.log(e.target.id)
+    console.log(result)
+}
