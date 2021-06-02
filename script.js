@@ -126,13 +126,13 @@ function evaluate(){
             getResultsReady();
             break;
         case 'divi':
-            console.log(inputPair)
             result = divide(x, y);
             getResultsReady();
             break;
         default:
             result = add(x, y);
-            screenDisplay.textContent = result;
+            getResultsReady();
+            // screenDisplay.textContent = result;
             break;
     }
 
@@ -153,6 +153,7 @@ function captureNum(e) {
 }
 
 function operate(e){
+    console.log(inputPair)
     evaluateNums();
     op = e.target.id; // log which operator was just pressed
     console.log(op);
@@ -164,4 +165,7 @@ function equals(e){
     getResultsReady()
     console.log(e.target.id)
     console.log(result)
+    console.log(tempNum)
+    console.log(inputPair)
+
 }
