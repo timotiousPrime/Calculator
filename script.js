@@ -101,6 +101,8 @@ function clearScreen(){
 function getResultsReady(){
     clearNums(); // clear the last tempNum and the inputPair
     inputPair.push(result); // put the result from the evaluation into the clean pair array
+    screenDisplay.textContent = result;
+    
 };
 
 
@@ -114,23 +116,19 @@ function evaluate(){
         case 'plus':
             result = add(x, y);
             getResultsReady();
-            screenDisplay.textContent = result;
             break;
         case 'minus':
             result = subtract(x, y);
             getResultsReady();
-            screenDisplay.textContent = result;
             break;
         case 'times':
             result = multiply(x, y);
             getResultsReady();
-            screenDisplay.textContent = result;
             break;
         case 'divi':
             console.log(inputPair)
             result = divide(x, y);
             getResultsReady();
-            screenDisplay.textContent = result;
             break;
         default:
             result = add(x, y);
