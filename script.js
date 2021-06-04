@@ -131,6 +131,7 @@ function captureInputNum(e) {
     screenDisplay.textContent = tempNum;
 }
 
+
 function updateNums(){
     inputPair.push(tempNum); 
     resetNums();
