@@ -153,8 +153,8 @@ function operate(e) {
 }
 
 
-function equals(e) {
-    //console.log(e.target.id)
+function equals() {
+    //console.log('equals')
     updateNums();
     inputPair = [0];
     tempNum = result;
