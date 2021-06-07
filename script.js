@@ -81,33 +81,6 @@ const equalsBtn = document.querySelector('#equals')
 equalsBtn.addEventListener('click', equals);
 ///////////////////////////////////////////////////////////////////////
 
-// // clears the numbers
-// function clearNums(){
-//     inputPair = [];
-//     inputNum = 0;
-//     tempNum = 0
-// }
-
-// // clears the screen
-// function clearScreen(){
-//     clearNums()
-//     inputPair = [0,];
-//     result = 0;
-//     screenDisplay.textContent = tempNum
-//     console.log('clear all');
-// }
-
-
-// function getResultsReady(){
-//     clearNums(); // clear the last tempNum and the inputPair
-//     inputPair.push(result); // put the result from the evaluation into the clean pair array
-//     screenDisplay.textContent = result;
-    
-// };
-
-
-
-
 // evaluates the numbers in inputPair with the operation called
 function evaluate(){
 
@@ -117,67 +90,32 @@ function evaluate(){
     switch (op) {
         case 'plus':
             result = add(x, y);
-            //getResultsReady();
             break;
         case 'minus':
             result = subtract(x, y);
-            //getResultsReady();
             break;
         case 'times':
             result = multiply(x, y);
-            //getResultsReady();
             break;
         case 'divi':
             result = divide(x, y);
-            //getResultsReady();
             break;
         default:
             result = add(x, y);
-            //getResultsReady();
-            // screenDisplay.textContent = result;
             break;
     }
 
 }
 
-// function evaluateNums(){
-//     inputPair.push(tempNum); // add the number entered before operator was pressed, into pair array
-//     evaluate(); // evaluate the numbers in the pair array
-// }
 
-
-// // captures the number being entered by the user
-// function captureNum(e) {
-//     inputNum += (e.target.textContent); //get the contents of the number just pressed and add it to a var
-//     tempNum = parseFloat(inputNum); // clean up the number
-//     console.log(tempNum);
-//     screenDisplay.textContent = tempNum;  // display the number on the calc screen
-// }
-
-// function operate(e){
-//     console.log(inputPair)
-//     evaluateNums();
-//     op = e.target.id; // log which operator was just pressed
-//     console.log(op);
-//     getResultsReady()
-// }
-
-// function equals(e){
-//     evaluateNums();
-//     getResultsReady()
-//     console.log(e.target.id)
-//     console.log(result)
-//     console.log(tempNum)
-//     console.log(inputPair)
-
-// }
-
+// Reset inputNum and tempNum to 0
 function resetNums(){
     inputNum = 0;
     tempNum = 0;
 }
 
 
+// Clear the screen and set to 0
 function clearScreen() {
     inputNum = 0;
     tempNum = 0;
@@ -187,14 +125,17 @@ function clearScreen() {
 }
 
 
-
+// Capture the numbers clicked on by the user
 function captureInputNum(e) {
-    result = 0
-    inputNum += e.target.textContent;
+    result = 0                  // Clears the result from the previous operation
+    inputNum += e.target.textContent; // Captures the number clicked on
     tempNum = parseFloat(inputNum); // clean up the number
     console.log(tempNum);
     screenDisplay.textContent = tempNum;
+    console.log(e.target)
 }
+
+
 
 function operate(e) {
     inputPair.push(tempNum);
@@ -210,6 +151,8 @@ function operate(e) {
     console.log(op)
 }
 
+
+
 function equals(e) {
     console.log(e.target.id)
     inputPair.push(tempNum);
@@ -221,4 +164,5 @@ function equals(e) {
     console.log(result);
     screenDisplay.textContent = result;
 }
+
 
