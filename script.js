@@ -108,12 +108,14 @@ function evaluate(){
 }
 
 
+// Reset inputNum and tempNum to 0
 function resetNums(){
     inputNum = 0;
     tempNum = 0;
 }
 
 
+// Clear the screen and set to 0
 function clearScreen() {
     inputNum = 0;
     tempNum = 0;
@@ -129,6 +131,7 @@ function captureInputNum(e) {
     tempNum = parseFloat(inputNum); // clean up the number
     //console.log(tempNum);
     screenDisplay.textContent = tempNum;
+    console.log(e.target)
 }
 
 

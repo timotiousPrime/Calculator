@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Roboto&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Iceberg&family=Roboto+Mono&display=swap');
 
 * {
     box-sizing: border-box;
@@ -18,13 +18,16 @@ body {
     text-align: center;
 }
 
+
 header {
     margin: 1.2rem;
 }
 
+
 header h1 {
     font-family: comfortaa;
 }
+
 
 main {
     font-family: comfortaa, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -34,60 +37,91 @@ main {
 
 }
 
+
 #calculatorBody {
     box-shadow: #ff9d004c 0px 20px 30px -10px;
     display: grid;
     grid-template-columns: auto auto auto auto;
     flex-wrap: wrap;
-    background-color: #111;
+    background-color: #FF9F00;
     border-radius: 0.6rem; 
     padding: .6rem;
+    border-radius: 16px;
+background: #FF9F00;
+box-shadow:  8px 8px 16px #181818,
+             -8px -8px 16px #4e4e4e;
 }
 
+
 .btn {
+    font-family: 'Roboto Mono', monospace;
+    border-radius: 12px;
+    background: #FF9F00;
+    box-shadow:  4px 4px 7px #754900,
+             -4px -4px 7px #fff500;
     color: #222;
     font-size: 1.6rem;
     min-width: 3.6rem;
-    background-color: #FF9F00;
+    /* background-color: #FF9F00; */
     margin: .4rem;
-    border-radius: .5rem;
+    /* border-radius: .5rem; */
     padding: .8rem;
-    box-shadow: rgba(146, 160, 176, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
 .btnPressed {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
+
 .op {
-    background-color: #FF4600;
+
+    border-radius: 12px;
+    background: #FFBC4D;
+    box-shadow:  4px 4px 7px #754900,
+             -4px -4px 7px #fff500;
 }
+
 
 .func{
-    background-color: #00B7FF;
+    background-color: #B36F00;
 }
 
+
 .screen {
+    align-content: center;
+    font-family: 'Iceberg', cursive;
     justify-content: center;
     text-align: end;
     font-size: 3.6rem;
-    border-radius: 0.2rem;
-    height: 4.6rem;
+    /* border-radius: 0.2rem; */
+    height: 6rem;
     grid-column: 1 / span 4;
     margin: .6rem;
-    background-color: #444;
+    border-radius: 10px;
+    background: #444444;
+    box-shadow: inset 4px 4px 7px #2b2b2b,
+            inset -4px -4px 7px #5d5d5d;
 }
+
 
 #plus {
     grid-column: 4 / 5;
-    grid-row: 6 / span 8;
+    grid-row: 5 / span 7;
 }
 
+
 .equals {
-    background-color: #FF0069;
+    background-color: #B36F00;
 }
 
 
 footer {
     padding: .6rem;
+}
+
+.active {
+    border-radius: 12px;
+background: #FF9F00;
+box-shadow: inset 5px 5px 10px #bd7600,
+            inset -5px -5px 10px #ffc800;
 }
