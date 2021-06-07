@@ -163,3 +163,13 @@ function equals() {
     screenDisplay.textContent = result;
 }
 
+////////////////////////////////////////////////////////////////
+//Listen for when keys are presssed
+
+function logKeyPressed(e){
+    console.log(e.key)
+}
+
+const key = document.querySelector(`.key`);
+
+window.addEventListener('keydown', logKeyPressed)
