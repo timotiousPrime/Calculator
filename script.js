@@ -1,22 +1,34 @@
 // Functions
 
+function roundNum(num){
+    rounded = num * 1000000
+    rounded = Math.round(rounded)
+    rounded = rounded/1000000
+    return rounded
+}
+
 function add(x, y){
-    return x + y;
+    let answer = x + y;
+    return roundNum(answer);
+
 };
 
 function subtract(x, y) {
-    return x - y;
+    let answer = x - y;
+    return roundNum(answer);
 };
 
 function multiply(x, y) {
-    return x * y;
+    let answer = x * y;
+    return roundNum(answer);
 };
 
 function divide(x, y) {
     if (y === 0) return 'error'
     else {
-        return x / y;
-    };
+        let answer = x / y;
+    return roundNum(answer);
+};
     // add a popup saying 'The second value has to be greater than your IQ. It can\'t be zero' 
 };
 
@@ -80,6 +92,8 @@ clearBtn.addEventListener('click', clearScreen);
 const equalsBtn = document.querySelector('#equals')
 equalsBtn.addEventListener('click', equals);
 ///////////////////////////////////////////////////////////////////////
+
+
 
 // evaluates the numbers in inputPair with the operation called
 function evaluate(){
