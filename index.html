@@ -14,31 +14,34 @@
     </header>
     <main>
         <div id="calculatorBody">
-            <div id="screen" class="screen"></div>
+            <div id="screen" class="screen">
+                <div id="topScreen"> </div>
+                <div id="bottomScreen"></div>
+            </div>
 
-            <div id="clear" class="btn func">ac</div>
-            <div id="backspace" class="btn op">&#177;</div>
-            <div id="percent" class="btn op">%</div>
-            <div id="times" class="btn op">x</div>
+            <div id="clear" data-key="" class="btn func">ac</div>
+            <div id="negative" data-key="" class="btn">&#177;</div>
+            <div id="percent" data-key="%" class="btn op">%</div>
+            <div id="times" data-key="*" class="btn op">x</div>
 
-            <div id="seven" class="btn num">7</div>
-            <div id="eight" class="btn num">8</div>
-            <div id="nine" class="btn num">9</div>
-            <div id="divi" class="btn op">&#247;</div>
+            <div id="seven" data-key="7" class="btn num">7</div>
+            <div id="eight" data-key="8" class="btn num">8</div>
+            <div id="nine" data-key="9" class="btn num">9</div>
+            <div id="divide" data-key="/" class="btn op">&#247;</div>
 
-            <div id="four" class="btn num">4</div>
-            <div id="five" class="btn num">5</div>
-            <div id="six" class="btn num">6</div>
-            <div id="minus" class="btn op">-</div>
+            <div id="four" data-key="4" class="btn num">4</div>
+            <div id="five" data-key="5" class="btn num">5</div>
+            <div id="six" data-key="6" class="btn num">6</div>
+            <div id="minus" data-key="-" class="btn op">-</div>
 
-            <div id="one" class="btn num">1</div>
-            <div id="two" class="btn num">2</div>
-            <div id="three" class="btn num">3</div>
-            <div id="plus" class="btn op">+</div>
+            <div id="one" data-key="1" class="btn num">1</div>
+            <div id="two" data-key="2" class="btn num">2</div>
+            <div id="three" data-key="3" class="btn num">3</div>
+            <div id="plus" data-key="+" class="btn op">+</div>
 
-            <div id="zero" class="btn num">0</div>
-            <div id="decimal" class="btn num">.</div>
-            <div id="equals" class="btn equals">=</div>
+            <div id="zero" data-key="0" class="btn num">0</div>
+            <div id="decimal" data-key="." class="btn num">.</div>
+            <div id="equals" data-key="=" class="btn equals">=</div>
 
         </div>
     </main>    
