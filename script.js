@@ -7,6 +7,7 @@ function roundNum(num){
     return rounded
 }
 
+
 function add(x, y){
     let answer = x + y;
     return roundNum(answer);
@@ -63,6 +64,9 @@ function factoral(x) {
 };
 
 ///////////////////////////////////////////////////
+let neg = false;
+
+let tempNum = 0;
 
 let inputPair = [0,]; // holds a pair of numbers
 
@@ -72,7 +76,9 @@ let op = ''; // is the operation entered by user
 
 let result; // is the result from evaluation
 
-const screenDisplay = document.getElementById('screen'); // is the area where the screen is 
+const topScreenDisplay = document.getElementById('topScreen'); // is the top part of the screen
+const bottomScreenDisplay = document.getElementById('bottomScreen'); // is the bottom part of the screen
+
 
 // listens for when a number is pressed
 const numBtns = document.querySelectorAll('.num');
@@ -81,6 +87,8 @@ numBtns.forEach(numBtn => numBtn.addEventListener('click', captureInputNum))
 // listen for when an operation is entered
 const operationBtns = document.querySelectorAll('.op');
 operationBtns.forEach(opBtn => opBtn.addEventListener('click', operate));
+
+
 
 
 // Listens for when user clicks on the clear btn and calls clear function
@@ -111,7 +119,7 @@ function evaluate(){
         case 'times':
             result = multiply(x, y);
             break;
-        case 'divi':
+        case 'divide':
             result = divide(x, y);
             break;
         default:
@@ -135,17 +143,25 @@ function clearScreen() {
     tempNum = 0;
     inputPair = [0];
     result = 0;
-    screenDisplay.textContent = tempNum;
+    op = '';
+    topScreenDisplay.textContent = op
+    bottomScreenDisplay.textContent = tempNum;
 }
 
 // captures the number entered by user
 function captureInputNum(e) {
-    result = 0
+    result = 0;
     inputNum += e.target.textContent; // is the number inputted by the user
     tempNum = parseFloat(inputNum); // clean up the number
-    //console.log(tempNum);
-    screenDisplay.textContent = tempNum;
-    console.log(e.target)
+        
+    if (neg === true && tempNum > 0) {
+        tempNum = tempNum * -1;
+        bottomScreenDisplay.textContent = tempNum;
+    } else {
+        console.log(tempNum);
+        bottomScreenDisplay.textContent = tempNum;
+        console.log(e.target.textContent)
+    }
 }
 
 
@@ -158,35 +174,49 @@ function updateNums(){
 
 // updates previous number entered and stores the operator
 function operate(e) {
+    neg = false;
     updateNums();
-    screenDisplay.textContent = result;
+    bottomScreenDisplay.textContent = result;
     //console.log('equals');
     //console.log(result + '.');
     //console.log(result);
     inputPair = [];
     inputPair.push(result);
     op = e.target.id;
+    topScreenDisplay.textContent = op
     //console.log(op)
 }
 
 
 function equals() {
+    neg = false;
     //console.log('equals')
     updateNums();
     inputPair = [0];
     tempNum = result;
     op = '';
     //console.log(result);
-    screenDisplay.textContent = result;
+    topScreenDisplay.textContent = op
+    bottomScreenDisplay.textContent = result;
 }
 
 ////////////////////////////////////////////////////////////////
 //Listen for when keys are presssed
 
 function logKeyPressed(e){
-    console.log(e.key)
+    console.log(e)
 }
 
 const key = document.querySelector(`.key`);
 
-window.addEventListener('keydown', logKeyPressed)
+window.addEventListener('keydown', logKeyPressed);
+
+// Make tempNum negative
+function negative() {
+    neg = true;
+    topScreenDisplay.textContent = '-';
+}
+
+// Listen for user wants a negative interger
+const negativeBtn = document.querySelector('#negative');
+negativeBtn.addEventListener('click', negative)
