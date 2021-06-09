@@ -203,13 +203,13 @@ function equals() {
 ////////////////////////////////////////////////////////////////
 //Listen for when keys are presssed
 
-function logKeyPressed(e){
-    console.log(e)
+function keyPressed(e){
+    return e.key;
 }
 
-const key = document.querySelector(`.key`);
 
-window.addEventListener('keydown', logKeyPressed);
+window.addEventListener('keydown', keyPressed);
+const numKey = document.querySelector()
 
 // Make tempNum negative
 function negative() {
