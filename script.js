@@ -255,7 +255,7 @@ function logkey(e){
 };
 
 window.addEventListener('keydown', keyPressed);
-window.addEventListener('keydown', logkey);
+// window.addEventListener('keydown', logkey);
 
 
 // Make tempNum negative
