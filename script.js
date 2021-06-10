@@ -5,7 +5,7 @@ function roundNum(num){
     rounded = Math.round(rounded)
     rounded = rounded/1000000
     return rounded
-}
+};
 
 
 function add(x, y){
@@ -82,7 +82,7 @@ const bottomScreenDisplay = document.getElementById('bottomScreen'); // is the b
 
 // listens for when a number is pressed
 const numBtns = document.querySelectorAll('.num');
-numBtns.forEach(numBtn => numBtn.addEventListener('click', captureInputNum))
+numBtns.forEach(numBtn => numBtn.addEventListener('click', captureInputNum));
 
 // listen for when an operation is entered
 const operationBtns = document.querySelectorAll('.op');
@@ -97,7 +97,7 @@ clearBtn.addEventListener('click', clearScreen);
 
 
 // Listen for when equals is clicked
-const equalsBtn = document.querySelector('#equals')
+const equalsBtn = document.querySelector('#equals');
 equalsBtn.addEventListener('click', equals);
 ///////////////////////////////////////////////////////////////////////
 
@@ -125,16 +125,15 @@ function evaluate(){
         default:
             result = add(x, y);
             break;
-    }
-
-}
+    };
+};
 
 
 // Reset inputNum and tempNum to 0
 function resetNums(){
     inputNum = 0;
     tempNum = 0;
-}
+};
 
 
 // Clear the screen and set to 0
@@ -144,9 +143,9 @@ function clearScreen() {
     inputPair = [0];
     result = 0;
     op = '';
-    topScreenDisplay.textContent = op
+    topScreenDisplay.textContent = op;
     bottomScreenDisplay.textContent = tempNum;
-}
+};
 
 function checkForNeg(){
     if (neg === true && tempNum > 0) {
@@ -156,8 +155,8 @@ function checkForNeg(){
         // console.log(tempNum);
         bottomScreenDisplay.textContent = tempNum;
         // console.log(e.target.textContent)
-    }
-}
+    };
+};
 
 // captures the number entered by user
 function captureInputNum(e) {
@@ -165,15 +164,14 @@ function captureInputNum(e) {
     inputNum += e.target.textContent; // is the number inputted by the user
     tempNum = parseFloat(inputNum); // clean up the number
     checkForNeg()
-    
-}
+};
 
 
 function updateNums(){
     inputPair.push(tempNum); 
     resetNums();
     evaluate();
-}
+};
 
 
 // updates previous number entered and stores the operator
@@ -187,9 +185,9 @@ function operate(e) {
     inputPair = [];
     inputPair.push(result);
     op = e.target.id;
-    topScreenDisplay.textContent = op
+    topScreenDisplay.textContent = op;
     //console.log(op)
-}
+};
 
 
 function equals() {
@@ -200,9 +198,9 @@ function equals() {
     tempNum = result;
     op = '';
     //console.log(result);
-    topScreenDisplay.textContent = op
+    topScreenDisplay.textContent = op;
     bottomScreenDisplay.textContent = result;
-}
+};
 
 ////////////////////////////////////////////////////////////////
 //Listen for when keys are presssed
@@ -212,7 +210,7 @@ function numKeyPressed(numKey){
     result = 0;
     inputNum += numKey.textContent; // is the number inputted by the user
     tempNum = parseFloat(inputNum); // clean up the number     
-    checkForNeg()
+    checkForNeg();
 };
 
 // updates previous number entered and stores the operator
@@ -228,7 +226,7 @@ function operateKey(opKey) {
     op = opKey.id;
     topScreenDisplay.textContent = op;
     //console.log(op)
-}
+};
 
 
 // captures the number entered by user
@@ -238,15 +236,15 @@ function keyPressed(e) {
     const funcKey = document.querySelector(`.func[data-key='${e.key}']`);
     const equalsKey = document.querySelector(`.equals[data-key='${e.key}']`);
     if (numKey) {
-        numKeyPressed(numKey)
-        console.log(numKey.textContent + ' key was pressed')
+        numKeyPressed(numKey);
+        console.log(numKey.textContent + ' key was pressed');
     } else if (opKey){
-        operateKey(opKey)
-        console.log(opKey.textContent + ' key was pressed')
+        operateKey(opKey);
+        console.log(opKey.textContent + ' key was pressed');
     } else if (funcKey){
-        console.log(funcKey.textContent + ' key was pressed')
+        console.log(funcKey.textContent + ' key was pressed');
     } else if (equalsKey){
-        console.log(equalsKey.textContent + ' key was pressed')
+        console.log(equalsKey.textContent + ' key was pressed');
     }
 }
 
@@ -261,4 +259,4 @@ function negative() {
 
 // Listen for user wants a negative interger
 const negativeBtn = document.querySelector('#negative');
-negativeBtn.addEventListener('click', negative)
+negativeBtn.addEventListener('click', negative);
