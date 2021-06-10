@@ -203,13 +203,31 @@ function equals() {
 ////////////////////////////////////////////////////////////////
 //Listen for when keys are presssed
 
+
 function keyPressed(e){
-    return e.key;
+    let numKey = document.querySelector(`.num[data-key='${e.key}']`);
+    console.log(numKey.textContent);
+    result = 0;
+    inputNum += numKey.textContent; // is the number inputted by the user
+    tempNum = parseFloat(inputNum); // clean up the number
+        
+    if (neg === true && tempNum > 0) {
+        tempNum = tempNum * -1;
+        bottomScreenDisplay.textContent = tempNum;
+    } else {
+        console.log(tempNum);
+        bottomScreenDisplay.textContent = tempNum;
+        console.log(numKey.textContent)
+    }
 }
 
+// captures the number entered by user
+function captureInputNumKey() {
+   
+}
 
 window.addEventListener('keydown', keyPressed);
-const numKey = document.querySelector()
+
 
 // Make tempNum negative
 function negative() {
