@@ -148,20 +148,24 @@ function clearScreen() {
     bottomScreenDisplay.textContent = tempNum;
 }
 
+function checkForNeg(){
+    if (neg === true && tempNum > 0) {
+        tempNum = tempNum * -1;
+        bottomScreenDisplay.textContent = tempNum;
+    } else {
+        // console.log(tempNum);
+        bottomScreenDisplay.textContent = tempNum;
+        // console.log(e.target.textContent)
+    }
+}
+
 // captures the number entered by user
 function captureInputNum(e) {
     result = 0;
     inputNum += e.target.textContent; // is the number inputted by the user
     tempNum = parseFloat(inputNum); // clean up the number
-        
-    if (neg === true && tempNum > 0) {
-        tempNum = tempNum * -1;
-        bottomScreenDisplay.textContent = tempNum;
-    } else {
-        console.log(tempNum);
-        bottomScreenDisplay.textContent = tempNum;
-        console.log(e.target.textContent)
-    }
+    checkForNeg()
+    
 }
 
 
@@ -204,26 +208,46 @@ function equals() {
 //Listen for when keys are presssed
 
 
-function keyPressed(e){
-    let numKey = document.querySelector(`.num[data-key='${e.key}']`);
-    console.log(numKey.textContent);
+function numKeyPressed(numKey){
     result = 0;
     inputNum += numKey.textContent; // is the number inputted by the user
-    tempNum = parseFloat(inputNum); // clean up the number
-        
-    if (neg === true && tempNum > 0) {
-        tempNum = tempNum * -1;
-        bottomScreenDisplay.textContent = tempNum;
-    } else {
-        console.log(tempNum);
-        bottomScreenDisplay.textContent = tempNum;
-        console.log(numKey.textContent)
-    }
+    tempNum = parseFloat(inputNum); // clean up the number     
+    checkForNeg()
+};
+
+// updates previous number entered and stores the operator
+function operateKey(opKey) {
+    neg = false;
+    updateNums();
+    bottomScreenDisplay.textContent = result;
+    //console.log('equals');
+    //console.log(result + '.');
+    //console.log(result);
+    inputPair = [];
+    inputPair.push(result);
+    op = opKey.id;
+    topScreenDisplay.textContent = op;
+    //console.log(op)
 }
 
+
 // captures the number entered by user
-function captureInputNumKey() {
-   
+function keyPressed(e) {
+    const numKey = document.querySelector(`.num[data-key='${e.key}']`);
+    const opKey = document.querySelector(`.op[data-key='${e.key}']`);
+    const funcKey = document.querySelector(`.func[data-key='${e.key}']`);
+    const equalsKey = document.querySelector(`.equals[data-key='${e.key}']`);
+    if (numKey) {
+        numKeyPressed(numKey)
+        console.log(numKey.textContent + ' key was pressed')
+    } else if (opKey){
+        operateKey(opKey)
+        console.log(opKey.textContent + ' key was pressed')
+    } else if (funcKey){
+        console.log(funcKey.textContent + ' key was pressed')
+    } else if (equalsKey){
+        console.log(equalsKey.textContent + ' key was pressed')
+    }
 }
 
 window.addEventListener('keydown', keyPressed);
