@@ -242,20 +242,27 @@ function keyPressed(e) {
         operateKey(opKey);
         console.log(opKey.textContent + ' key was pressed');
     } else if (funcKey){
+        clearScreen();
         console.log(funcKey.textContent + ' key was pressed');
     } else if (equalsKey){
+        equals();
         console.log(equalsKey.textContent + ' key was pressed');
-    }
-}
+    };
+};
+
+function logkey(e){
+    console.log(e.key)
+};
 
 window.addEventListener('keydown', keyPressed);
+window.addEventListener('keydown', logkey);
 
 
 // Make tempNum negative
 function negative() {
     neg = true;
     topScreenDisplay.textContent = '-';
-}
+};
 
 // Listen for user wants a negative interger
 const negativeBtn = document.querySelector('#negative');
