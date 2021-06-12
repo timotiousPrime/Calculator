@@ -88,7 +88,13 @@ numBtns.forEach(numBtn => numBtn.addEventListener('click', captureInputNum));
 const operationBtns = document.querySelectorAll('.op');
 operationBtns.forEach(opBtn => opBtn.addEventListener('click', operate));
 
+//Listen where when a key is pressed
+window.addEventListener('keydown', keyPressed);
 
+
+// Listen for user wants a negative interger
+const negativeBtn = document.querySelector('#negative');
+negativeBtn.addEventListener('click', negative);
 
 
 // Listens for when user clicks on the clear btn and calls clear function
@@ -250,20 +256,8 @@ function keyPressed(e) {
     };
 };
 
-function logkey(e){
-    console.log(e.key)
-};
-
-window.addEventListener('keydown', keyPressed);
-// window.addEventListener('keydown', logkey);
-
-
 // Make tempNum negative
 function negative() {
     neg = true;
     topScreenDisplay.textContent = '-';
 };
-
-// Listen for user wants a negative interger
-const negativeBtn = document.querySelector('#negative');
-negativeBtn.addEventListener('click', negative);
