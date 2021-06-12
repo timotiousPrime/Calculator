@@ -49,7 +49,7 @@ main {
     border-radius: 16px;
 background: #FF9F00;
 box-shadow:  8px 8px 16px #181818,
-             -8px -8px 16px #4e4e4e;
+            -8px -8px 16px #4e4e4e;
 }
 
 
@@ -58,7 +58,7 @@ box-shadow:  8px 8px 16px #181818,
     border-radius: 12px;
     background: #FF9F00;
     box-shadow:  4px 4px 7px #754900,
-             -4px -4px 7px #fff500;
+                -4px -4px 7px #fff500;
     color: #222;
     font-size: 1.6rem;
     min-width: 4rem;
@@ -77,7 +77,7 @@ box-shadow:  8px 8px 16px #181818,
     border-radius: 12px;
     background: #FFBC4D;
     box-shadow:  4px 4px 7px #754900,
-             -4px -4px 7px #fff500;
+                -4px -4px 7px #fff500;
 }
 
 
@@ -140,7 +140,7 @@ footer {
 
 .active {
     border-radius: 12px;
-background: #FF9F00;
-box-shadow: inset 5px 5px 10px #bd7600,
-            inset -5px -5px 10px #ffc800;
+    background: #FF9F00;
+    box-shadow: inset 5px 5px 10px #bd7600,
+                inset -5px -5px 10px #ffc800;
 }
