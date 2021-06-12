@@ -92,6 +92,16 @@ operationBtns.forEach(opBtn => opBtn.addEventListener('click', operate));
 window.addEventListener('keydown', keyPressed);
 
 
+//  Listens for when btn is clicked then applies active style
+const btns = document.querySelectorAll('.btn');
+btns.forEach(btn => btn.addEventListener('mousedown', btnDown));
+btns.forEach(btn => btn.addEventListener('mouseup', btnUp));
+btns.forEach(btn => btn.addEventListener('keydown', keyDown));
+
+// Listens for when btn key is pressed then applies active style
+window.addEventListener('keydown', keyDown);
+window.addEventListener('keyup', keyUp);
+
 // Listen for user wants a negative interger
 const negativeBtn = document.querySelector('#negative');
 negativeBtn.addEventListener('click', negative);
@@ -234,6 +244,17 @@ function operateKey(opKey) {
     //console.log(op)
 };
 
+// Applies active class to key btn that's been pressed
+function keyDown(e) {
+    let btn = document.querySelector(`.btn[data-key='${e.key}']`);
+    btn.classList.add('active');
+}
+
+// Removes active class to key btn that's been released
+function keyUp(e) {
+    let btn = document.querySelector(`.btn[data-key='${e.key}']`);
+    btn.classList.remove('active');
+}
 
 // captures the number entered by user
 function keyPressed(e) {
@@ -261,3 +282,14 @@ function negative() {
     neg = true;
     topScreenDisplay.textContent = '-';
 };
+
+// Adds the active style to the btn clicked
+function btnDown(){
+    this.classList.add('active')
+    console.log('btn down')
+}
+
+// removes the active style after btn clicked
+function btnUp(){
+    this.classList.remove('active')
+}
