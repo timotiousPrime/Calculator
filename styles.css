@@ -68,6 +68,26 @@ box-shadow:  8px 8px 16px #181818,
     padding: .8rem;
 }
 
+.num:hover {
+    background-color: #eb9300;
+}
+
+.op:hover {
+    background-color: #ffae27;
+}
+
+.func:hover {
+    background-color: #9f6300;
+}
+
+.equals:hover {
+    background-color: #9f6300;
+}
+
+#negative:hover {
+    background-color: #ffab1f;
+}
+
 #negative {
     background-color: #FFB233;
 }
